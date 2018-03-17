@@ -90,14 +90,14 @@ describe Slang do
       HTML
     end
 
-    it "escapes output with single = " do
+    it "escapes output with single =" do
       val = %{"Hello" & world}
       render("span attr=val").should eq <<-HTML
       <span attr="&quot;Hello&quot; & world"></span>
       HTML
     end
 
-    it "should allow quotes inside interpolated blocks " do
+    it "allows quotes inside interpolated blocks" do
       person = {"name" => "cris"}
       res = render_file("spec/fixtures/interpolation-attr.slim")
       res.should eq <<-HTML
@@ -105,7 +105,7 @@ describe Slang do
       HTML
     end
 
-    it "should allow = at the end of attribute values" do
+    it "allows = at the end of attribute values" do
       render(%{h1 id="asdf=" Hello}).should eq <<-HTML
       <h1 id="asdf=">Hello</h1>
       HTML
